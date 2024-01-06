@@ -2,7 +2,7 @@
 import { AuthForm } from '../components/Auth/AuthForm'
 
 import Container from '@mui/material/Container';
-export const Login = () => {
+const LoginPage = () => {
     return (
         <Container
             sx={{
@@ -16,3 +16,5 @@ export const Login = () => {
         </Container>
     )
 }
+
+export default LoginPage;

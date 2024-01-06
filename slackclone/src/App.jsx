@@ -2,26 +2,31 @@ import {
   RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
-  Route,
+  Route
 } from "react-router-dom";
-import { Login } from "./pages/Login"
-import CssBaseline from '@mui/material/CssBaseline';
+import LoginPage from "./pages/LoginPage"
+import Layout from "./components/Layout/Layout";
+import IndexPage from "./pages/IndexPage"
 
 function App() {
-  
+
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/"  element={<Login />}>
-        
+      <Route>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/home" element={<Layout />}>
+          <Route index element={<IndexPage />} />
+        </Route>
       </Route>
     )
   );
 
+
+
   return (
-    <>
-      <CssBaseline />
-      <RouterProvider router={router} />;
-    </>
+
+    <RouterProvider router={router} />
+
   )
 }
 
