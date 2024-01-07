@@ -6,6 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import MainListItems from './ListItemSidebar';
 
 const DrawerConfig = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
     ({ theme, open }) => ({
@@ -24,10 +25,7 @@ const DrawerConfig = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== '
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
           }),
-          width: theme.spacing(7),
-          [theme.breakpoints.up('sm')]: {
-            width: theme.spacing(9),
-          },
+          width: theme.spacing(0)
         }),
       },
     }),
@@ -50,9 +48,7 @@ const Drawer = ({toggleDrawer, open}) => {
     </Toolbar>
     <Divider />
     <List component="nav">
-      {<h5>aoismd aoism d</h5>}
-      <Divider sx={{ my: 1 }} />
-      {<h5>aoismd sa d</h5>}
+      <MainListItems/>
     </List>
   </DrawerConfig>
   )
