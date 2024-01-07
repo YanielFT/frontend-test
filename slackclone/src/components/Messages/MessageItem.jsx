@@ -9,7 +9,7 @@ import IconButton from '@mui/material/IconButton';
 import { useState } from "react";
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-const MessaggeItem = ({ items: { photo, fullName, hour, messagge } }) => {
+const MessageItem = ({ items: { photo, fullName, hour, message } }) => {
 
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -41,7 +41,7 @@ const MessaggeItem = ({ items: { photo, fullName, hour, messagge } }) => {
               >
                 <Typography
                   md
-                  variant="h5" gutterBottom>
+                  variant="h6" gutterBottom>
                   {fullName}
                 </Typography>
                 <Typography
@@ -53,7 +53,7 @@ const MessaggeItem = ({ items: { photo, fullName, hour, messagge } }) => {
             </Stack>
           </Stack>
           <Typography variant="body2" gutterBottom>
-            {messagge}
+            {message}
           </Typography>
         </Grid>
         <Grid xs={1}>
@@ -78,4 +78,4 @@ const MessaggeItem = ({ items: { photo, fullName, hour, messagge } }) => {
   )
 }
 
-export default MessaggeItem;
+export default MessageItem;

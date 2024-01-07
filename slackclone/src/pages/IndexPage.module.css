@@ -1,9 +1,4 @@
 
-
-.container{
-
-}
-
 .messagge{
    max-height: calc(100vh - 24rem);
    overflow-y: scroll;
