@@ -40,7 +40,6 @@ const MessageItem = ({ items: { photo, fullName, hour, message } }) => {
                 spacing={1}
               >
                 <Typography
-                  md
                   variant="h6" gutterBottom>
                   {fullName}
                 </Typography>
@@ -52,7 +51,9 @@ const MessageItem = ({ items: { photo, fullName, hour, message } }) => {
               </Stack>
             </Stack>
           </Stack>
-          <Typography variant="body2" gutterBottom>
+          <Typography
+          sx={{wordWrap: "break-word"}}
+          flexWrap={'wrap'} variant="body2" gutterBottom>
             {message}
           </Typography>
         </Grid>

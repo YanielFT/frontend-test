@@ -12,20 +12,19 @@ const CommentBox = () => {
 
 
     const onChangeHanlder = (e) => {
-        console.log(e);
-        if (e.keyCode !== 13) {
-            setComment(e.target.value)
-        }
+        setComment(e.target.value)
     }
 
     const sendMessage = () => {
-        dispatch(messagesActions.addMessage({
-            photo: 'https://media.vogue.mx/photos/5d6eb55456587800082ae4ba/1:1/w_2002,h_2002,c_limit/Cara-Delevingne-tendencias-belleza-2.jpg',
-            fullName: 'Cara Delevigne',
-            hour: `${new Date().getHours()}:${new Date().getMinutes()}-${new Date().getSeconds()}`,
-            message: comment
-        }));
-        setComment('');
+        if (comment.trim().length > 0) {
+            dispatch(messagesActions.addMessage({
+                photo: 'https://media.vogue.mx/photos/5d6eb55456587800082ae4ba/1:1/w_2002,h_2002,c_limit/Cara-Delevingne-tendencias-belleza-2.jpg',
+                fullName: 'Cara Delevigne',
+                hour: `${new Date().getHours()}:${new Date().getMinutes()}-${new Date().getSeconds()}`,
+                message: comment
+            }));
+            setComment('');
+        }
     }
     const submitHandler = (e) => {
         e.preventDefault();
@@ -48,8 +47,6 @@ const CommentBox = () => {
                 <TextField
                     id="standard-multiline-flexible"
                     label="Chat"
-                    multiline
-                    maxRows={4}
                     onKeyUp={pressEnterHandler}
                     value={comment}
                     onChange={onChangeHanlder}
@@ -59,7 +56,7 @@ const CommentBox = () => {
 
                 <IconButton
                     type='submit'
-                    sx={{ maxHeight: "30px", maxWidth: "30px", alignSelf: "center" }}>
+                    sx={{ maxHeight: "30px", maxWidth: "30px", alignSelf: "end" }}>
                     <SendIcon />
                 </IconButton>
             </Stack>
