@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 import Box from '@mui/material/Box';
 import { useState } from "react";
 import Appbar from "./Appbar";
@@ -8,8 +8,9 @@ import Container from '@mui/material/Container';
 
 
 const Layout = () => {
+  const { id } = useParams();
+  const home = id === undefined ? true : false;
   const [open, setOpen] = useState(true);
-
   const toggleDrawer = () => {
     setOpen(!open);
   };
@@ -29,12 +30,15 @@ const Layout = () => {
           flexGrow: 1,
           height: '100vh',
           overflow: 'auto',
-          padding: '1rem'
+          padding: home ? '0':'1rem',
         }}
       >
-        <Container maxWidth="xl" sx={{ mt: 9, mb: 4 }}>
-          <Outlet />
-        </Container>
+        {home ? <Outlet /> :
+          <Container maxWidth="md" sx={{ mt: 9, mb: 4 }}>
+            <Outlet />
+          </Container>
+        }
+
       </Box>
     </Box>
   )

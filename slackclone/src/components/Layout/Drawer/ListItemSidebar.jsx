@@ -15,9 +15,8 @@ const items = [
     {
         title: 'Direct messages',
         level2: [
-            { title: 'Slackbot', icon:'person' },
-            { title: 'Matt Brewer' , icon:'person'},
-            { title: 'Milo J' , icon:'person'}
+            { title: 'Milo j', icon:'person', chat: '1' },
+            { title: 'Tirone Gonzalez' , icon:'person', chat: '2'},
         ]
     }
 ];

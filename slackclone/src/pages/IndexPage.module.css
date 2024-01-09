@@ -1,7 +1,7 @@
 
 .messagge{
    max-height: calc(100vh - 24rem);
-   overflow-y: scroll;
+   overflow-y: auto;
    overflow-x: hidden;
 }
 
