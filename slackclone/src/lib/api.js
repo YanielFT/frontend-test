@@ -66,26 +66,6 @@ const chats = [
             },
         ]
     },
-    // {
-    //     id: 'Milo J-05:00',
-    //     hour: '05:00',
-    //     message: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, autem fugit? Atque ea labore magni tempore blanditiis quam dolorem. Nobis sequi cupiditate rerum accusantium? Doloribus impedit iste facere voluptatibus. Reprehenderit!'
-    // },
-    // {
-    //     id: 'Tirone González-20:30',
-    //     hour: '20:30',
-    //     message: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, autem fugit? Atque ea labore magni tempore blanditiis quam dolorem. Nobis sequi cupiditate rerum accusantium? Doloribus impedit iste facere voluptatibus. Reprehenderit!'
-    // },
-    // {
-    //     id: 'Cristiano Ronaldo-20:30',
-    //     hour: '19:30',
-    //     message: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, autem fugit? Atque ea labore magni tempore blanditiis quam dolorem. Nobis sequi cupiditate rerum accusantium? Doloribus impedit iste facere voluptatibus. Reprehenderit!'
-    // },
-    // {
-    //     id: 'Fernando Herrera-20:30',
-    //     hour: '19:30',
-    //     message: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, autem fugit? Atque ea labore magni tempore blanditiis quam dolorem. Nobis sequi cupiditate rerum accusantium? Doloribus impedit iste facere voluptatibus. Reprehenderit!'
-    // },
 ];
 
 
