@@ -10,7 +10,7 @@ import { userLogin } from "../../store/auth-slice";
 import { useEffect } from "react";
 
 export const AuthForm = () => {
-    const { loading, userInfo, error } = useSelector((state) => state.auth)
+    const {  userInfo, error } = useSelector((state) => state.auth)
     const dispatch = useDispatch()
     const nav = useNavigate();
     const {
@@ -47,7 +47,7 @@ export const AuthForm = () => {
 
             <form onSubmit={submittedHandler}>
                 <Grid container spacing={2}>
-                    <Grid  xs={12} justifyContent={"center"}>
+                    <Grid xs={12} justifyContent={"center"}>
                         <TextField
                             sx={{ width: "100%" }}
                             autoComplete="username"
@@ -57,7 +57,7 @@ export const AuthForm = () => {
                             value={nameValue}
                             variant="outlined" required />
                     </Grid>
-                    <Grid  xs={12}>
+                    <Grid xs={12}>
                         <TextField
                             value={passValue}
                             onChange={passChangeHandler}
@@ -65,7 +65,8 @@ export const AuthForm = () => {
                             autoComplete="current-password"
                             id="password" label="Password" variant="outlined" required type="password" />
                     </Grid>
-                    <Grid  xs={12}
+
+                    <Grid xs={12}
                         display={"flex"}
                         alignItems={"center"}
                         justifyContent={"center"}
@@ -76,6 +77,13 @@ export const AuthForm = () => {
                             variant="contained">accept</Button>
                     </Grid>
                 </Grid>
+                {error &&
+                    <Grid display={"flex"}
+                        alignItems={"center"}
+                        justifyContent={"center"}>
+                        <span style={{ textAlign: 'center', color: 'red' }}>{error}</span>
+                    </Grid>
+                }
             </form>
         </Card>
     )

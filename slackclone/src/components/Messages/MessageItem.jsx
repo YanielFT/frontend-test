@@ -1,4 +1,4 @@
-
+import { useSelector } from 'react-redux'
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
@@ -9,7 +9,15 @@ import IconButton from '@mui/material/IconButton';
 import { useState } from "react";
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-const MessageItem = ({ items: { photo, fullName, hour, message } }) => {
+import { useDispatch } from "react-redux";
+import { messagesActions } from "../../store/message-slice";
+import EditMessage from './EditMessage';
+const MessageItem = ({ items: { photo, fullName, hour, message, id, idUser } }) => {
+  const dispatch = useDispatch();
+  const [openModal, setOpenModal] = useState(false);
+  const handleCloseModal = () => setOpenModal(false);
+
+  const { userToken } = useSelector((state) => state.auth);
 
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -18,6 +26,13 @@ const MessageItem = ({ items: { photo, fullName, hour, message } }) => {
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+  const handleRemove = () => {
+    dispatch(messagesActions.removeItem({ id }));
+    setAnchorEl(null);
+  };
+  const handleEdit = () => {
+    setOpenModal(true);
   };
 
   return (
@@ -52,28 +67,32 @@ const MessageItem = ({ items: { photo, fullName, hour, message } }) => {
             </Stack>
           </Stack>
           <Typography
-          sx={{wordWrap: "break-word"}}
-          flexWrap={'wrap'} variant="body2" gutterBottom>
+            sx={{ wordWrap: "break-word" }}
+            flexWrap={'wrap'} variant="body2" gutterBottom>
             {message}
           </Typography>
         </Grid>
-        <Grid xs={1}>
-          <IconButton onClick={handleClick}>
-            <MoreVertIcon />
-          </IconButton>
-          <Menu
-            id="basic-menu"
-            anchorEl={anchorEl}
-            open={open}
-            onClose={handleClose}
-            MenuListProps={{
-              'aria-labelledby': 'basic-button',
-            }}
-          >
-            <MenuItem onClick={handleClose}>Delete</MenuItem>
-            <MenuItem onClick={handleClose}>Edit</MenuItem>
-          </Menu>
-        </Grid>
+        {userToken === idUser ?
+          <Grid xs={1}>
+            <IconButton onClick={handleClick}>
+              <MoreVertIcon />
+            </IconButton>
+            <Menu
+              id="basic-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                'aria-labelledby': 'basic-button',
+              }}
+            >
+              <MenuItem onClick={handleRemove}>Delete</MenuItem>
+              <MenuItem onClick={handleEdit}>Edit</MenuItem>
+              <EditMessage setOpenModal={setOpenModal} open={openModal} handleCloseModal={handleCloseModal} handleClose={handleClose} message={{ message, id }} />
+            </Menu>
+          </Grid>
+          : <></>
+        }
       </Grid>
     </Paper>
   )

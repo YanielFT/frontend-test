@@ -27,18 +27,36 @@ const messagesSlice = createSlice({
         },
         removeItem(state, action) {
             state.amount--;
-            state.changed = true;
             const messageExist = state.items.findIndex(
-                (item) => item.id === action.payload
+                (item) => item.id === action.payload.id
             );
             const cartItem = state.items[messageExist];
             if (cartItem) {
                 state.items = state.items.filter(
-                    (item) => item.id !== action.payload
+                    (item) => item.id !== action.payload.id
                 );
             }
         },
-    },
+        editItem(state, action) {
+            console.log(action.payload);
+            const messageExist = state.items.findIndex(
+                (item) => item.id === action.payload.id
+            );
+
+
+            const cartItem = state.items[messageExist];
+            let messageNew = action.payload;
+            const index = messageNew.hour.indexOf('-');
+
+            if (cartItem) {
+                state.items[messageExist] = {
+                    ...state.items[messageExist],
+                    message: action.payload.message,
+                    hour: messageNew.hour.slice(0, index)
+                }
+            }
+        }
+    }
 });
 
 const messagesReducer = messagesSlice.reducer;

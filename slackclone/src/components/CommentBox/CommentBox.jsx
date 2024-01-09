@@ -6,11 +6,11 @@ import { useState } from 'react';
 import { useDispatch } from "react-redux";
 import { messagesActions } from "../../store/message-slice";
 import MessageIcon from '@mui/icons-material/Message';
-import { useNavigation, useParams } from "react-router-dom";
+import { useNavigation } from "react-router-dom";
 import CircularProgress from '@mui/material/CircularProgress';
 import { useSelector } from 'react-redux'
 const CommentBox = () => {
-    const { id } = useParams();
+
     const [comment, setComment] = useState('');
     const dispatch = useDispatch();
     const state = useNavigation();
@@ -18,6 +18,7 @@ const CommentBox = () => {
     const sendMessage = () => {
         if (comment.trim().length > 0) {
             dispatch(messagesActions.addMessage({
+                idUser: userInfo.id,
                 photo: userInfo.photo,
                 fullName: userInfo.fullName,
                 hour: `${new Date().getHours() < 10 ? '0' : ''}${new Date().getHours()}:${new Date().getMinutes() < 10 ? '0' : ''}${new Date().getMinutes()}-${new Date().getSeconds()}`,

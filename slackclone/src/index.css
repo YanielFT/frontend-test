@@ -11,3 +11,12 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.active .css-13eg511-MuiButtonBase-root-MuiListItemButton-root {
+  background-color: rgba(15, 125, 235, 0.09);
+}
