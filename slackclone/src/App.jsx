@@ -1,16 +1,19 @@
+import React from "react";
 import {
   RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
   Route
 } from "react-router-dom";
-import LoginPage from "./pages/LoginPage"
 import Layout from "./components/Layout/Layout";
-import IndexPage from "./pages/IndexPage"
-import { loader as loaderDataIndex } from "./pages/IndexPage";
 import Background from "./components/UI/Background";
 import { useSelector } from 'react-redux'
+import { loader as loaderDataIndex } from "./pages/IndexPage";
 import NotFound from "./pages/NotFound";
+
+import IndexPage from "./pages/IndexPage";
+const LoginPage = React.lazy(() => import("./pages/LoginPage"));
+
 function App() {
   const { userToken } = useSelector((state) => state.auth);
   const router = createBrowserRouter(
@@ -35,9 +38,7 @@ function App() {
 
 
   return (
-
     <RouterProvider router={router} />
-
   )
 }
 

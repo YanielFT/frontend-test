@@ -17,7 +17,9 @@ const MessageItem = ({ items: { photo, fullName, hour, message, id, idUser } }) 
   const [openModal, setOpenModal] = useState(false);
   const handleCloseModal = () => setOpenModal(false);
 
-  const { userToken } = useSelector((state) => state.auth);
+  const { userToken, userInfo } = useSelector((state) => state.auth);
+  let userId;
+  userInfo == undefined ?  userId = userToken : userId = userInfo.id;
 
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -72,7 +74,7 @@ const MessageItem = ({ items: { photo, fullName, hour, message, id, idUser } }) 
             {message}
           </Typography>
         </Grid>
-        {userToken === idUser ?
+        {userId === idUser ?
           <Grid xs={1}>
             <IconButton onClick={handleClick}>
               <MoreVertIcon />

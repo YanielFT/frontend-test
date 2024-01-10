@@ -38,8 +38,8 @@ const IndexPage = () => {
             </>
           }}
 
-        </Await>
 
+        </Await>
         <div className={classes.comment}>
           <CommentBox />
         </div>
