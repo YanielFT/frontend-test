@@ -116,7 +116,7 @@ const Drawer = ({ toggleDrawer, open }) => {
         </Toolbar>
         <Divider />
         <List component="nav">
-          <MainListItems />
+          <MainListItems onClose={toggleDrawer}/>
         </List>
       </DrawerConfig>
 

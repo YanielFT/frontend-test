@@ -6,10 +6,10 @@ import List from '@mui/material/List';
 import Collapse from '@mui/material/Collapse';
 import IconExport from '../../helper/IconExport';
 import { NavLink } from "react-router-dom";
-const CollapseItem = ({ itemLvl2, open }) => {
+const CollapseItem = ({ itemLvl2, open, onClose }) => {
 
     return (
-        <NavLink to={itemLvl2.chat ? itemLvl2.chat+"/": ''}  end className={({ isActive }) =>
+        <NavLink onClick={onClose} to={itemLvl2.chat ? itemLvl2.chat+"/": ''}  end className={({ isActive }) =>
          isActive ? "active" : ""}>
             <Collapse in={open} timeout="auto" unmountOnExit>
 

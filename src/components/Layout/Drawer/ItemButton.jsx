@@ -11,12 +11,12 @@ import IconButton from '@mui/material/IconButton';
 import { useState } from 'react';
 import CollapseItem from './CollapseItem';
 
-const ItemButton = ({ title, items }) => {
+const ItemButton = ({ title, items, onClose }) => {
   const [open, setOpen] = useState(true);
   const handleClick = () => {
     setOpen(!open);
   };
-  const lvl2 = items.map(itemLvl2 => <CollapseItem key={itemLvl2.title} itemLvl2={itemLvl2} open={open}/>);
+  const lvl2 = items.map(itemLvl2 => <CollapseItem key={itemLvl2.title} itemLvl2={itemLvl2} open={open} onClose={onClose} />);
 
   return (
     <>
@@ -25,7 +25,8 @@ const ItemButton = ({ title, items }) => {
         {open ? <ExpandLess /> : <ExpandMore />}
         <ListItemText
           sx={{ marginLeft: "2rem" }}
-          primary={title} />
+          primary={title} 
+          />
         <IconButton
 
           edge="end" aria-label="delete">

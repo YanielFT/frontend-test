@@ -22,11 +22,11 @@ const items = [
 ];
 
 
-const MainListItems = () => {
+const MainListItems = ( {onClose}) => {
 
 
     return <>
-        {items.map(item => <React.Fragment key={item.title}><ItemButton key={item.title} title={item.title} items={item.level2} />
+        {items.map(item => <React.Fragment key={item.title}><ItemButton key={item.title} title={item.title} items={item.level2} onClose = {onClose} />
             <Divider sx={{ my: 1 }} /></React.Fragment>
         )}
 
