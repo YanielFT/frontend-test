@@ -9,7 +9,7 @@ import { NavLink } from "react-router-dom";
 const CollapseItem = ({ itemLvl2, open }) => {
 
     return (
-        <NavLink to={itemLvl2.chat ? itemLvl2.chat+"/": ''}  end className={({ isActive, isPending }) =>
+        <NavLink to={itemLvl2.chat ? itemLvl2.chat+"/": ''}  end className={({ isActive }) =>
          isActive ? "active" : ""}>
             <Collapse in={open} timeout="auto" unmountOnExit>
 

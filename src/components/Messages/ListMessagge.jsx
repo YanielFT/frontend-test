@@ -11,7 +11,6 @@ const AlwaysScrollToBottom = () => {
 const ListMessagge = () => {
 
     const items = useSelector((state) => state.messages.items);
-    console.log(items);
     return <ul>
         {items.map(item => <li key={item.id}><MessageItem items={item} /> </li>)
         }<AlwaysScrollToBottom />

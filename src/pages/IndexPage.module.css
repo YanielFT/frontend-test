@@ -1,13 +1,14 @@
 
 .messagge{
-   max-height: calc(100vh - 24rem);
+   max-height: calc(80vh);
    overflow-y: auto;
    overflow-x: hidden;
 }
 
 .comment{
-    position: fixed;
+    position: absolute;
     bottom: 1rem;
-    width: 600px;
+    left: 0;
+    width: 100%;
     z-index: 8;
 }

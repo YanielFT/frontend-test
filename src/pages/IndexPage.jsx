@@ -5,13 +5,13 @@ import { getMessage } from "../lib/api";
 import classes from "./IndexPage.module.css"
 import Typography from '@mui/material/Typography';
 import { Await, defer, useLoaderData } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { messagesActions } from "../store/message-slice";
+// import { useDispatch } from "react-redux";
+// import { messagesActions } from "../store/message-slice";
 import MessageSkeleton from "../components/UI/MessageSkeleton";
 
 const IndexPage = () => {
   const data = useLoaderData();
-  const dispatch = useDispatch();
+  //const dispatch = useDispatch();
 
   return (
     <Suspense
@@ -24,7 +24,7 @@ const IndexPage = () => {
       <div className={classes.container}>
         <Await resolve={data.messages}>
           {(messages) => {
-            dispatch(messagesActions.replaceMessages({ items: messages }))
+            // dispatch(messagesActions.replaceMessages({ items: messages }))
 
             return <><Typography
               display={"block"}

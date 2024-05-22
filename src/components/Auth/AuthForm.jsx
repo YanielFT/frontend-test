@@ -40,7 +40,7 @@ export const AuthForm = () => {
         <Card>
             <Typography variant="h4"
                 fontFamily={'Montserrat'}
-                fontWeight={500}
+                fontWeight={'500'}
                 textTransform={"uppercase"} textAlign={"center"} gutterBottom >
                 Sign in
             </Typography>

@@ -1,7 +1,7 @@
 import { Outlet, useParams } from "react-router-dom";
 import Box from '@mui/material/Box';
 import { useState } from "react";
-import Appbar from "./Appbar";
+import Appbar from "./AppBar";
 import Drawer from "./Drawer/Drawer";
 import Container from '@mui/material/Container';
 
