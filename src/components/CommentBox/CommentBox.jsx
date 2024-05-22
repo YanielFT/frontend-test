@@ -50,18 +50,20 @@ const CommentBox = () => {
 
   return (
     <form onSubmit={submitHandler}>
-      <Container maxWidth = {"sm"}>
+      <Container  maxWidth = {"sm"}>
         <Stack
+        sx={{background: 'white', padding:1, borderRadius: 5} }
           direction={"row"}
           spacing={2}
-          justifyContent={"start"}
-          alignItems={"start"}
+          justifyContent={"center"}
+          alignItems={"center"}
+          justifyItems={"center"}
         >
           <MessageIcon
             sx={{
               color: "action.active",
               mr: 1,
-              alignSelf: "end",
+              alignSelf: "center",
             }}
           />
           <TextField
@@ -72,6 +74,7 @@ const CommentBox = () => {
             value={comment}
             onChange={onChangeHanlder}
             variant="standard"
+            draggable
             fullWidth
           />
           {state.state === "submitting" ? (
@@ -79,7 +82,7 @@ const CommentBox = () => {
           ) : (
             <IconButton
               type="submit"
-              sx={{ maxHeight: "30px", maxWidth: "30px", alignSelf: "end" }}
+              sx={{ maxHeight: "30px", maxWidth: "30px", alignSelf: "center" }}
             >
               <SendIcon />
             </IconButton>
